@@ -1,0 +1,1106 @@
+/* Vood.ai Landing Page Styles */
+/* --------------------------- */
+
+/* 1. Global Resets & Base Styles */
+/* 2. Variables (Colors, Typography, Spacing) */
+/* 3. Utility Classes */
+/* 4. Header & Navigation Styles */
+/* 5. Section Styles */
+/*    5.1 Hero Section */
+/*    5.2 Features Section */
+/*    5.3 How It Works Section */
+/*    5.4 Social Proof Section */
+/*    5.5 Waitlist Form Section */
+/* 6. Footer Styles */
+/* 7. Responsive Design (Media Queries) */
+/*    7.1 Tablet (768px - 1199px) */
+/*    7.2 Mobile (320px - 767px) */
+
+/* 1. Global Resets & Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+}
+
+body {
+    font-family: var(--font-family-sans);
+    line-height: 1.7; /* Increased for better readability */
+    color: var(--text-primary);
+    background-color: var(--background-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    margin-bottom: var(--space-3); /* Use spacing variables */
+    letter-spacing: -0.02em; /* Subtle letter spacing for modern feel */
+}
+
+/* 2. Variables (Colors, Typography, Spacing) */
+:root {
+    /* Color Palette - Modern & Exciting */
+    --primary-hue: 210; /* Base hue for blues */
+    --accent-hue: 280;  /* Base hue for purples/magentas */
+
+    --primary-color: hsl(var(--primary-hue), 75%, 60%);      /* Softer Blue */
+    --primary-hover: hsl(var(--primary-hue), 75%, 50%);
+    --primary-light: hsl(var(--primary-hue), 75%, 96%);      /* Adjusted for softer palette */
+
+    --accent-color: hsl(var(--accent-hue), 60%, 70%);         /* Subdued Lavender/Plum */
+    --accent-hover: hsl(var(--accent-hue), 60%, 60%);
+    --accent-light: hsl(var(--accent-hue), 60%, 96%);      /* Adjusted for softer palette */
+
+    --secondary-color: #10B981; /* Emerald Green for success/positive actions */
+    --secondary-hover: #059669;
+
+    --text-primary: #111827;         /* Dark Gray for primary text (almost black) */
+    --text-secondary: #4B5563;       /* Medium Gray for secondary text */
+    --text-on-primary: #FFFFFF;      /* Text on dark/colored backgrounds */
+    --text-on-accent: #FFFFFF;
+
+    --background-primary: #FFFFFF;   /* Clean White background */
+    --background-secondary: #F9FAFB; /* Very Light Gray for section differentiation */
+    --background-card: #FFFFFF;      /* Card backgrounds */
+
+    --border-color: #E5E7EB;         /* Light Gray for borders */
+    --border-color-focus: var(--primary-color);
+
+    --error-color: #EF4444;          /* Red for error messages */
+    --success-color: var(--secondary-color);
+
+    /* Typography */
+    --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Keeping Inter, it's modern */
+    --font-family-display: 'Poppins', var(--font-family-sans); /* Optional: Poppins for headings for more "wow" */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    --text-xs: 0.75rem;    /* 12px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;     /* 16px */
+    --text-lg: 1.125rem;   /* 18px */
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 2rem;      /* 32px - Adjusted for more impact */
+    --text-4xl: 2.5rem;    /* 40px - Adjusted */
+    --text-5xl: 3.25rem;   /* 52px - Adjusted */
+    --text-6xl: 4rem;      /* 64px - New for very large headings */
+
+
+    /* Spacing (based on 8px grid, with more granular options) */
+    --space-0-5: 0.25rem; /* 4px */
+    --space-1: 0.5rem;    /* 8px */
+    --space-1-5: 0.75rem; /* 12px */
+    --space-2: 1rem;      /* 16px */
+    --space-2-5: 1.25rem; /* 20px */
+    --space-3: 1.5rem;    /* 24px */
+    --space-4: 2rem;      /* 32px */
+    --space-5: 2.5rem;    /* 40px */
+    --space-6: 3rem;      /* 48px */
+    --space-8: 4rem;      /* 64px */
+    --space-10: 5rem;     /* 80px */
+    --space-12: 6rem;     /* 96px */
+    --space-16: 8rem;     /* 128px */
+    --space-20: 10rem;    /* 160px */
+
+
+    /* Borders */
+    --border-radius-sm: 6px;
+    --border-radius-md: 10px; /* Slightly adjusted */
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px; /* New for larger elements */
+    --border-radius-full: 9999px; /* For pills, circular elements */
+
+    /* Shadows - More subtle and layered */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.04);
+}
+
+/* 3. Utility Classes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(to right, var(--primary-color), hsl(var(--primary-hue), 80%, 60%));
+    color: var(--text-on-primary);
+    padding: var(--space-2-5) var(--space-5); /* Larger padding */
+    border-radius: var(--border-radius-full); /* Pill shape */
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: all 0.3s ease; /* Transition all properties */
+    box-shadow: var(--shadow-md);
+    border: none; /* Remove default border */
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: linear-gradient(to right, var(--primary-hover), hsl(var(--primary-hue), 80%, 50%));
+    text-decoration: none;
+    color: var(--text-on-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.cta-button-secondary {
+    background: linear-gradient(to right, var(--accent-color), hsl(var(--accent-hue), 70%, 70%));
+    color: var(--text-on-accent);
+}
+.cta-button-secondary:hover {
+    background: linear-gradient(to right, var(--accent-hover), hsl(var(--accent-hue), 70%, 60%));
+    color: var(--text-on-accent);
+}
+
+.card {
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-2xl);
+    background-color: var(--background-secondary);
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(100%);
+    }
+    50% {
+        transform: scale(1.07);
+        filter: brightness(110%);
+    }
+}
+
+@keyframes backgroundPan {
+ 0% {
+  background-position: 0% center;
+ }
+ 100% {
+  background-position: -200% center;
+ }
+}
+
+@keyframes subtleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes mockupShine {
+    0% {
+        transform: translateX(-100%) skewX(-20deg);
+    }
+    100% {
+        transform: translateX(200%) skewX(-20deg);
+    }
+}
+
+
+/* Utility classes for animations (can be added to HTML elements) */
+.animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.animate-subtle-float {
+    animation: subtleFloat 3.5s infinite ease-in-out;
+}
+
+
+/* 4. Header & Navigation Styles */
+header {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--space-2) 0;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+header .logo-container img {
+    height: 40px; /* Adjust as needed */
+}
+
+header .nav-links a {
+    margin-left: var(--space-4); /* Increased spacing */
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header .nav-links a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+header .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -var(--space-0-5);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+header .nav-links a:hover::after {
+    width: 70%;
+}
+
+/* 5. Section Styles */
+section {
+    padding: var(--space-12) var(--space-4); /* Increased padding */
+}
+
+section:nth-child(even) {
+    background-color: var(--background-secondary);
+}
+
+section h2 {
+    font-size: var(--text-4xl); /* Larger section titles */
+    font-family: var(--font-family-display); /* Use display font */
+    text-align: center;
+    margin-bottom: var(--space-8); /* Increased bottom margin */
+    color: var(--text-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+/* 5.1 Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 50%, var(--primary-light) 100%);
+    background-size: 200% 200%; /* For gradient animation */
+    animation: backgroundPan 25s linear infinite;
+    padding: var(--space-16) var(--space-4) var(--space-12); /* More top padding */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* For animations */
+    position: relative; /* For pseudo-elements or absolute positioned animations */
+    z-index: 1; /* Ensure hero content is above any background pseudo-elements */
+}
+
+#hero .hero-content h1 {
+    font-size: var(--text-6xl); /* Use new larger size */
+    font-family: var(--font-family-display);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.2;
+}
+
+#hero .hero-content p {
+    font-size: var(--text-xl); /* Larger paragraph text */
+    color: var(--text-secondary);
+    max-width: 750px; /* Slightly wider */
+    margin: 0 auto var(--space-6); /* More bottom margin */
+    line-height: 1.8;
+}
+
+#hero .hero-image-container {
+    margin-top: var(--space-8); /* Increased margin for better spacing with larger mockup */
+    position: relative;
+    z-index: 2;
+    perspective: 1000px; /* For 3D-like effects on hover if desired */
+}
+
+.hero-app-mockup {
+    max-width: clamp(300px, 60vw, 550px); /* Responsive max-width */
+    height: auto;
+    border-radius: var(--border-radius-lg); /* Consistent rounded corners */
+    box-shadow: var(--shadow-2xl), /* Deeper shadow for prominence */
+                0 0 80px -20px hsla(var(--primary-hue), 75%, 60%, 0.25), /* Softer Primary color glow */
+                0 0 80px -20px hsla(var(--accent-hue), 60%, 70%, 0.15);  /* Softer Accent color glow */
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+    animation: subtleFloat 4s infinite ease-in-out, fadeIn 1.2s ease-out 0.5s forwards; /* Add subtle float and delayed fadeIn */
+    opacity: 0; /* Start hidden for fadeIn */
+    position: relative; /* For shine pseudo-element */
+    overflow: hidden; /* To contain the shine */
+}
+
+.hero-app-mockup:hover {
+    transform: translateY(-10px) scale(1.03); /* Slightly more pronounced hover effect */
+    box-shadow: var(--shadow-2xl),
+                0 0 100px -15px hsla(var(--primary-hue), 75%, 60%, 0.35), /* Softer Primary color glow on hover */
+                0 0 100px -15px hsla(var(--accent-hue), 60%, 70%, 0.25); /* Softer Accent color glow on hover */
+}
+
+/* Optional: Add a subtle shine animation on load or hover */
+.hero-app-mockup::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Width of the shine */
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        hsla(0,0%,100%,0) 0%,
+        hsla(0,0%,100%,0.03) 50%, /* Very subtle shine */
+        hsla(0,0%,100%,0) 100%
+    );
+    transform: translateX(-100%) skewX(-20deg); /* Start off-screen */
+    animation: mockupShine 3s ease-in-out 1.5s forwards; /* Delayed shine animation */
+    /* To trigger on hover instead: remove animation here, add it to .hero-app-mockup:hover::after */
+}
+
+
+#hero-visual-placeholder {
+    /* This style is for the old placeholder, can be removed or kept for fallback if image fails */
+    /* display: none; */ /* Hide if new mockup is primary */
+    width: clamp(250px, 50vw, 400px);
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(145deg, hsla(var(--primary-hue), 100%, 55%, 0.1), hsla(var(--accent-hue), 90%, 65%, 0.15));
+    border-radius: 50%;
+    margin: var(--space-6) auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--primary-color);
+    text-align: center;
+    box-shadow: var(--shadow-xl), 0 0 60px -15px hsla(var(--primary-hue), 100%, 55%, 0.3), 0 0 60px -15px hsla(var(--accent-hue), 90%, 65%, 0.3);
+    animation: pulse 3s infinite ease-in-out, fadeIn 1s ease-out 0.8s forwards;
+    border: 2px solid hsla(0,0%,100%,0.2);
+    backdrop-filter: blur(5px);
+}
+
+
+/* 5.2 Features Section */
+#features .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+#features .feature-item {
+    /* Inherits from .card now */
+    text-align: center;
+}
+#features .feature-item:hover {
+    /* Handled by .card:hover */
+}
+/* Removed alternating background for feature items for consistency if section bg is already alternating */
+/* #features .feature-item:nth-child(odd) {
+    background-color: var(--background-secondary);
+} */
+
+#features .feature-item .feature-icon-wrapper {
+    width: 90px; /* Larger than icon */
+    height: 90px;
+    margin: 0 auto var(--space-4);
+    background: var(--background-primary); /* Or a very light gradient */
+    border-radius: var(--border-radius-lg); /* Slightly more rounded than icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#features .feature-item:hover .feature-icon-wrapper {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+
+#features .feature-item .feature-icon {
+    width: 72px; /* Larger icons */
+    height: 72px;
+    /* margin is now handled by wrapper */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: var(--border-radius-md);
+    padding: var(--space-2); /* Padding inside the icon itself if it's a container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-on-primary);
+    box-shadow: var(--shadow-xs); /* Smaller shadow for the icon itself */
+    /* The icon image itself should fill this, or be an SVG */
+    width: 50px; /* Actual icon size if it's an img tag */
+    height: 50px; /* Actual icon size if it's an img tag */
+    object-fit: contain; /* If using <img> for icons */
+}
+
+#features .feature-item h3 {
+    font-size: var(--text-2xl); /* Larger feature titles */
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+#features .feature-item p {
+    font-size: var(--text-base); /* Keep base for readability */
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* 5.3 How It Works Section */
+#how-it-works .how-it-works-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+#how-it-works .step {
+    /* Inherits from .card now, but steps might have slightly different padding or radius */
+    text-align: center;
+    padding: var(--space-4); /* Override card padding if needed */
+    border-radius: var(--border-radius-lg); /* Override card radius if needed */
+}
+
+#how-it-works .step:hover {
+    /* Handled by .card:hover, but can be more subtle for steps */
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+#how-it-works .step img {
+    max-width: 200px; /* Adjust as needed */
+    margin: 0 auto var(--space-4); /* Increased margin */
+    border-radius: var(--border-radius-lg); /* More rounded */
+    box-shadow: var(--shadow-sm); /* Add subtle shadow to images */
+}
+
+#how-it-works .step h4 {
+    font-size: var(--text-xl); /* Larger step titles */
+    margin-bottom: var(--space-1-5);
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+#how-it-works .step p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* 5.4 Social Proof Section */
+#social-proof {
+    /* Optional: Add a subtle pattern or very light gradient if desired */
+}
+
+#social-proof .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-5); /* Increased gap */
+    margin-bottom: var(--space-8); /* Increased margin */
+}
+
+#social-proof .testimonial {
+    background-color: var(--background-card);
+    padding: var(--space-5); /* Increased padding */
+    border-radius: var(--border-radius-xl); /* More rounded */
+    box-shadow: var(--shadow-lg); /* Softer shadow for testimonials */
+    position: relative; /* For quote pseudo-element */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#social-proof .testimonial:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+#social-proof .testimonial blockquote {
+    font-size: var(--text-lg); /* Slightly larger quote text */
+    color: var(--text-secondary);
+    line-height: 1.8; /* More spacing for readability */
+    margin-bottom: var(--space-3);
+    font-style: italic;
+    position: relative;
+    padding-left: var(--space-3); /* Space for quote mark */
+}
+
+#social-proof .testimonial blockquote::before {
+    content: '“'; /* Opening quote */
+    font-family: Georgia, serif; /* Serif for quote marks */
+    font-size: var(--text-5xl);
+    color: var(--primary-color);
+    opacity: 0.3;
+    position: absolute;
+    left: -var(--space-1);
+    top: -var(--space-2);
+}
+
+#social-proof .testimonial cite {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    font-style: normal;
+    font-size: var(--text-base);
+}
+
+#social-proof .partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap; /* Allow logos to wrap on smaller screens */
+}
+
+#social-proof .partner-logos img {
+    max-height: 60px; /* Slightly larger logos */
+    opacity: 0.6; /* More subtle initially */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: grayscale(50%); /* Desaturate slightly */
+}
+
+#social-proof .partner-logos img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* 5.5 Waitlist Form Section */
+#waitlist {
+    background: linear-gradient(135deg, var(--accent-color) 0%, hsl(var(--accent-hue), 70%, 55%) 100%);
+    color: var(--text-on-accent);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+}
+
+#waitlist h2 {
+    color: var(--text-on-accent);
+    font-family: var(--font-family-display);
+}
+
+#waitlist p {
+    color: hsla(0, 0%, 100%, 0.85);
+    max-width: 650px;
+    margin: 0 auto var(--space-6);
+    text-align: center;
+    font-size: var(--text-lg);
+    line-height: 1.7;
+}
+
+#waitlistForm {
+    max-width: 500px;
+    margin: var(--space-6) auto 0;
+    background-color: var(--background-card);
+    padding: var(--space-5); /* Increased padding */
+    border-radius: var(--border-radius-xl); /* More rounded */
+    box-shadow: var(--shadow-2xl); /* Stronger shadow for focus */
+}
+
+#waitlistForm .form-group {
+    margin-bottom: var(--space-3);
+}
+
+#waitlistForm label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+#waitlistForm input[type="text"],
+#waitlistForm input[type="email"],
+#waitlistForm input[type="tel"] {
+    width: 100%;
+    padding: var(--space-2);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md); /* More rounded inputs */
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    background-color: var(--background-secondary); /* Subtle background for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#waitlistForm input[type="text"]:focus,
+#waitlistForm input[type="email"]:focus,
+#waitlistForm input[type="tel"]:focus {
+    outline: none;
+    border-color: var(--border-color-focus);
+    box-shadow: 0 0 0 3px hsla(var(--primary-hue), 100%, 55%, 0.2); /* Focus ring */
+    background-color: var(--background-primary);
+}
+
+/* Input error styling */
+#waitlistForm input.input-error {
+    border-color: var(--error-color) !important; /* Ensure override */
+    box-shadow: 0 0 0 3px hsla(0, 80%, 50%, 0.2) !important; /* Ensure override */
+}
+#waitlistForm input.input-error:focus {
+    border-color: var(--error-color) !important;
+    box-shadow: 0 0 0 3px hsla(0, 80%, 50%, 0.3) !important;
+}
+
+/* General error message styling for inputs */
+#waitlistForm .form-group .error-message {
+    display: block;
+    color: var(--error-color);
+    font-size: var(--text-sm);
+    margin-top: var(--space-0-5);
+    min-height: var(--text-base); /* Reserve space to prevent layout shifts */
+    font-weight: var(--font-weight-medium);
+}
+
+
+#waitlistForm .terms-group {
+    display: flex;
+    align-items: center;
+    font-size: var(--text-sm);
+}
+
+#waitlistForm .terms-group input[type="checkbox"] {
+    margin-right: var(--space-1);
+    accent-color: var(--primary-color);
+    width: 1.15em;
+    height: 1.15em;
+}
+
+#waitlistForm .terms-group label {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-regular);
+}
+
+#waitlistForm .terms-group a {
+    color: var(--primary-color);
+    text-decoration: none; /* Remove underline, rely on color */
+    font-weight: var(--font-weight-medium);
+}
+#waitlistForm .terms-group a:hover {
+    text-decoration: underline;
+}
+
+#waitlistForm .error-message { /* This was for the terms group specifically, now covered by general */
+    display: block;
+    color: var(--error-color);
+    font-size: var(--text-sm);
+    margin-top: var(--space-1);
+    /* Specific alignment for terms error if needed */
+    /* flex-basis: 100%; */
+    /* margin-left: calc(1.15em + var(--space-1)); */
+}
+
+#waitlistForm button[type="submit"] {
+    width: 100%;
+    padding: var(--space-2);
+    font-size: var(--text-lg);
+    background: linear-gradient(to right, var(--primary-color), hsl(var(--primary-hue), 80%, 60%)); /* Consistent with main CTA */
+    color: var(--text-on-primary);
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    border-radius: var(--border-radius-full);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative; /* For progress indicator */
+    overflow: hidden; /* For progress indicator */
+}
+#waitlistForm button[type="submit"]:hover {
+    background: linear-gradient(to right, var(--primary-hover), hsl(var(--primary-hue), 80%, 50%));
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+#waitlistForm button[type="submit"].loading-state::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(var(--primary-hue),100%,80%,0.5), transparent);
+    animation: loadingShine 1.5s infinite linear;
+}
+
+@keyframes loadingShine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; } /* Keep it off-screen at the end of one cycle before repeating */
+}
+
+
+#formStatus {
+    margin-top: var(--space-3); /* Adjusted from var(--space-2) for better spacing */
+    padding: var(--space-2);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    font-weight: var(--font-weight-medium);
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Hidden by default, shown by JS */
+    transform: translateY(10px); /* Start slightly down */
+}
+
+#formStatus.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#formStatus.loading {
+    background-color: hsl(var(--primary-hue), 100%, 90%);
+    color: var(--primary-color);
+    /* Button will have its own loading shine */
+}
+
+#formStatus.success {
+    background-color: hsl(var(--success-color), 70%, 85%); /* Lighter green using success-color variable */
+    color: hsl(var(--success-color), 100%, 25%); /* Darker green text for contrast */
+    border: 1px solid hsl(var(--success-color), 70%, 75%);
+    font-size: var(--text-lg);
+    padding: var(--space-3);
+}
+
+#formStatus.error {
+    background-color: hsl(0, 80%, 90%); /* Lighter red */
+    color: var(--error-color);
+    border: 1px solid hsl(0, 80%, 80%);
+}
+
+/* Waitlist Counter */
+#waitlistCounter {
+    text-align: center;
+    margin-top: var(--space-4);
+    font-size: var(--text-lg);
+    color: var(--text-on-accent); /* Adjusted for waitlist section background */
+    opacity: 0.8;
+}
+#waitlistCounter strong {
+    font-weight: var(--font-weight-bold);
+    color: #FFFFFF; /* Brighter white for emphasis on accent bg */
+}
+
+/* Confetti Placeholder Styles */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks through */
+    z-index: 9999; /* Above everything */
+    overflow: hidden;
+}
+
+.confetti-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color); /* Default color */
+    opacity: 0;
+    border-radius: 50%; /* Simple circle, can be rectangle too */
+    animation: fall 3s linear forwards;
+}
+
+/* More varied confetti */
+.confetti-particle.type2 { background-color: var(--accent-color); width: 7px; height: 15px; border-radius: 3px;}
+.confetti-particle.type3 { background-color: var(--secondary-color); width: 12px; height: 12px; }
+
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotateZ(0deg) rotateX(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotateZ(720deg) rotateX(360deg);
+        opacity: 0;
+    }
+}
+
+
+#waitlist .form-footer-note {
+    font-size: var(--text-sm);
+    text-align: center;
+    margin-top: var(--space-3);
+    color: hsla(0, 0%, 100%, 0.75);
+}
+
+
+/* 6. Footer Styles */
+footer {
+    background-color: var(--text-primary); /* Dark background for footer */
+    color: hsla(0, 0%, 100%, 0.6); /* Lighter text for contrast */
+    padding: var(--space-6) 0; /* Increased padding */
+    text-align: center;
+    font-size: var(--text-sm);
+}
+
+footer .footer-links {
+    margin-top: var(--space-1);
+}
+
+footer .footer-links a {
+    color: hsla(0, 0%, 100%, 0.6);
+    margin: 0 var(--space-1-5);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+footer .footer-links a:hover {
+    color: var(--background-primary); /* Brighter white on hover */
+    text-decoration: underline;
+}
+
+/* 7. Responsive Design (Media Queries) */
+
+/* 7.1 Tablet (768px - 1199px) */
+@media (max-width: 1199px) {
+    :root {
+        --text-5xl: 2.75rem; /* 44px */
+        --text-6xl: 3.5rem;  /* 56px */
+        --space-12: 5rem;    /* 80px */
+        --space-16: 7rem;    /* 112px */
+    }
+
+    section {
+        padding: var(--space-10) var(--space-3);
+    }
+
+    #hero {
+        padding: var(--space-12) var(--space-3) var(--space-10);
+    }
+
+    #hero .hero-content h1 {
+        font-size: var(--text-5xl); /* Adjusted for tablet */
+    }
+    #hero .hero-content p {
+        font-size: var(--text-lg); /* Adjusted for tablet */
+        max-width: 650px;
+    }
+
+    #features .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: var(--space-3);
+    }
+
+    #how-it-works .how-it-works-steps {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: var(--space-3);
+    }
+
+    #social-proof .testimonials {
+        grid-template-columns: 1fr; /* Stack testimonials on tablet */
+        gap: var(--space-4);
+    }
+}
+
+
+/* 7.2 Mobile (320px - 767px) */
+@media (max-width: 767px) {
+    :root {
+        --text-4xl: 2rem;    /* 32px */
+        --text-5xl: 2.25rem; /* 36px */
+        --text-6xl: 2.75rem; /* 44px */
+
+        --space-8: 3rem;     /* 48px */
+        --space-10: 4rem;    /* 64px */
+        --space-12: 4rem;    /* 64px */
+    }
+
+    body {
+        line-height: 1.6;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+    }
+    header .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Allow nav links to wrap */
+        justify-content: center;
+        gap: var(--space-1); /* Add gap between wrapped links */
+    }
+    header .nav-links a {
+        margin-left: var(--space-2); /* Adjust spacing for mobile */
+        margin-right: var(--space-2);
+    }
+
+    section {
+        padding: var(--space-8) var(--space-2);
+    }
+    section h2 {
+        font-size: var(--text-4xl); /* Adjusted for mobile */
+        margin-bottom: var(--space-6);
+    }
+
+    #hero {
+        padding: var(--space-10) var(--space-2) var(--space-8);
+    }
+    #hero .hero-content h1 {
+        font-size: var(--text-5xl); /* Adjusted for mobile */
+    }
+    #hero .hero-content p {
+        font-size: var(--text-base); /* Adjusted for mobile */
+        margin-bottom: var(--space-4);
+    }
+    #hero .cta-button {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-base);
+    }
+    #hero-visual-placeholder,
+    #hero-visual, /* Apply to old SVG */
+    .hero-app-mockup { /* Apply to new image mockup */
+        width: clamp(220px, 75vw, 320px) !important; /* Adjusted for mobile */
+        max-width: 90%; /* Ensure it doesn't overflow small screens */
+        height: auto !important;
+        margin-top: var(--space-6); /* More space on mobile */
+    }
+    .hero-app-mockup {
+         box-shadow: var(--shadow-xl), /* Simpler shadow for mobile */
+                0 0 40px -15px hsla(var(--primary-hue), 100%, 55%, 0.2),
+                0 0 40px -15px hsla(var(--accent-hue), 90%, 65%, 0.15);
+    }
+    .hero-app-mockup:hover {
+        transform: translateY(-5px) scale(1.02); /* Less pronounced hover on mobile */
+    }
+
+
+    #features .features-grid {
+        grid-template-columns: 1fr; /* Stack features on mobile */
+        gap: var(--space-3);
+    }
+    #features .feature-item {
+        padding: var(--space-4);
+    }
+    #features .feature-item .feature-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+    #features .feature-item .feature-icon {
+        width: 40px;
+        height: 40px;
+    }
+    #features .feature-item h3 {
+        font-size: var(--text-xl);
+    }
+
+
+    #how-it-works .how-it-works-steps {
+        grid-template-columns: 1fr; /* Stack steps on mobile */
+        gap: var(--space-3);
+    }
+    #how-it-works .step {
+        padding: var(--space-3);
+    }
+    #how-it-works .step img {
+        max-width: 150px;
+    }
+    #how-it-works .step h4 {
+        font-size: var(--text-lg);
+    }
+
+    #social-proof .partner-logos img {
+        max-height: 40px; /* Smaller logos on mobile */
+        gap: var(--space-4);
+    }
+
+    #waitlistForm {
+        padding: var(--space-4);
+    }
+    #waitlistForm input[type="text"],
+    #waitlistForm input[type="email"],
+    #waitlistForm input[type="tel"] {
+        padding: var(--space-1-5);
+        font-size: var(--text-sm);
+    }
+    #waitlistForm button[type="submit"] {
+        padding: var(--space-1-5);
+        font-size: var(--text-base);
+    }
+    #waitlist p {
+        font-size: var(--text-base);
+    }
+}

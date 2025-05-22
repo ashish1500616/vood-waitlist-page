@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vood.ai - Your Personal Food Ordering Assistant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon (placeholder - replace with actual favicon) -->
+    <link rel="icon" href="assets/images/favicon_placeholder.png" type="image/png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <!-- Logo will be loaded via JS using assetConfig -->
+                <img id="mainLogo" src="" alt="Vood.ai Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#waitlist">Join Waitlist</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="animate-fadeInUp" style="animation-delay: 0.2s;">Meet Vood.ai: Your Smart Food Ordering Companion</h1>
+                <p class="animate-fadeInUp" style="animation-delay: 0.4s;">Save time and enjoy effortless meal ordering with your personal AI assistant. Get early access and be the first to experience the future of food ordering.</p>
+                <a href="#waitlist" class="cta-button animate-fadeInUp animate-pulse" style="animation-delay: 0.6s;">Join the Beta Waitlist</a>
+            </div>
+            <div class="hero-image-container animate-fadeIn" style="animation-delay: 0.8s;">
+                <!-- Engaging visual of Vood.ai app interface -->
+                <img id="hero-visual-app-mockup" src="assets/images/vood_interface_bgr.png" alt="Vood.ai App Interface Mockup" class="hero-app-mockup">
+            </div>
+        </section>
+
+        <!-- Key Features/Benefits Section -->
+        <section id="features">
+            <h2 class="animate-fadeInUp">Why You'll Love Vood.ai</h2>
+            <div class="features-grid">
+                <div class="feature-item card animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="feature-icon-wrapper"> <!-- Wrapper for icon styling -->
+                        <img id="featureIcon1" src="" alt="Smart Ordering Icon" class="feature-icon">
+                    </div>
+                    <h3>Smart Ordering</h3>
+                    <p>Vood.ai learns your preferences and suggests meals you'll love, making ordering faster and more intuitive.</p>
+                </div>
+                <div class="feature-item card animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="feature-icon-wrapper">
+                        <img id="featureIcon2" src="" alt="Time-Saving Icon" class="feature-icon">
+                    </div>
+                    <h3>Time-Saving</h3>
+                    <p>Perfect for busy professionals. Order your favorite meals in seconds, not minutes. Reclaim your valuable time.</p>
+                </div>
+                <div class="feature-item card animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="feature-icon-wrapper">
+                        <img id="featureIcon3" src="" alt="Seamless Experience Icon" class="feature-icon">
+                    </div>
+                    <h3>Seamless Experience</h3>
+                    <p>Integrates with your favorite restaurants and delivery services for a smooth, hassle-free experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <h2 class="animate-fadeInUp">Simple Steps to Delicious Meals</h2>
+            <div class="how-it-works-steps">
+                <div class="step card animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <img id="howItWorksStep1Img" src="" alt="Step 1: Describe Craving">
+                    <h4>1. Tell Vood.ai What You Crave</h4>
+                    <p>Use voice or text to describe your desired meal or cuisine.</p>
+                </div>
+                <div class="step card animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <img id="howItWorksStep2Img" src="" alt="Step 2: Get Suggestions">
+                    <h4>2. Get Personalized Suggestions</h4>
+                    <p>Vood.ai presents tailored options from nearby restaurants.</p>
+                </div>
+                <div class="step card animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <img id="howItWorksStep3Img" src="" alt="Step 3: Confirm Order">
+                    <h4>3. Confirm & Relax</h4>
+                    <p>One-tap confirmation and your food is on its way!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Section (Optional, as per requirements) -->
+        <section id="social-proof">
+            <h2 class="animate-fadeInUp">Trusted by Professionals Like You</h2>
+            <div class="testimonials">
+                <!-- Testimonial 1 -->
+                <div class="testimonial animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <blockquote>"Vood.ai has revolutionized my lunch breaks. I get exactly what I want without the usual hassle. A real time-saver!"</blockquote>
+                    <cite>- Alex P., Marketing Manager</cite>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <blockquote>"As a busy developer, I barely have time to think about food. Vood.ai is a lifesaver. Highly recommend!"</blockquote>
+                    <cite>- Sarah K., Software Engineer</cite>
+                </div>
+            </div>
+            <div class="partner-logos">
+                <img id="clientLogo1" src="" alt="Client Logo 1">
+                <img id="clientLogo2" src="" alt="Client Logo 2">
+                <!-- Add more logos as needed -->
+            </div>
+        </section>
+
+        <!-- Waitlist Signup Form Section -->
+        <section id="waitlist">
+            <h2 class="animate-fadeInUp">Be the First to Experience Vood.ai</h2>
+            <p class="animate-fadeInUp" style="animation-delay: 0.2s;">Sign up for our beta program and get exclusive early access. We'll only use your email for beta access and important launch announcements.</p>
+            <form id="waitlistForm" class="animate-fadeInUp" style="animation-delay: 0.4s;">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional):</label>
+                    <input type="tel" id="phone" name="phone">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group terms-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and Terms of Service.</label>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+                <button type="submit" class="cta-button" id="submitButton">Join Waitlist</button>
+                <div id="formStatus"></div> <!-- For loading/success/error messages -->
+            </form>
+            <div id="waitlistCounterContainer" class="animate-fadeInUp" style="animation-delay: 0.6s;">
+                <p id="waitlistCounter">Join <strong><span id="waitlistCount">1,234</span></strong> others on the Vood.ai waitlist!</p>
+            </div>
+            <p class="form-footer-note">You'll receive an email confirming your spot on the waitlist.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Vood.ai. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <!-- Add other necessary legal links -->
+        </div>
+    </footer>
+
+    <div id="confetti-container"></div>
+    <script src="js/assets.js"></script>
+    <script type="module" src="js/supabaseClient.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
